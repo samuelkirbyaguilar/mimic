@@ -11,6 +11,12 @@ const mix = require('laravel-mix');
  |
  */
 
+// let env = process.env.MIX_ENV;
+// if (env == "LOCAL")
+//     mix.setPublicPath("public/");
+// if (env == "PRODUCTION")
+//     mix.setPublicPath("../domains/")
+mix.setPublicPath(process.env.MIX_PUBLIC_PATH);
 mix.js('resources/js/app.js', 'public/js')
     .vue()
     .postCss('resources/css/app.css', 'public/css', [
