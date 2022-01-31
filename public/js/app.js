@@ -19282,8 +19282,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
+var _hoisted_1 = {
+  "class": "h-screen w-screen bg-green-800"
+};
+
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"container mx-auto h-screen grid place-items-center\"><div class=\"flex flex-col items-center\"><h4 class=\"text-5xl text-gray-200 font-serif mb-1\">Welcome to Mimic!</h4><!-- Logo goes here in the future --><hr class=\"border-solid border-1 border-gray-100/50 w-full mb-2\"><p class=\"text-gray-300/75 font-serif text-center\"> Mimic is a personal project where I try to recreate <br> popular websites&#39; frontends for practice. </p></div></div>", 1);
+
+var _hoisted_3 = [_hoisted_2];
 function render(_ctx, _cache) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, " Testing ");
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, _hoisted_3);
 }
 
 /***/ }),
