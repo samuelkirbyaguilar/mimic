@@ -10,7 +10,7 @@ define('LARAVEL_START', microtime(true));
  * Path from public to app root is different
  * between development and production
  */
-const APP_ROOT_DIR = ($_SERVER['HTTP_HOST'] == 'localhost') ?
+$APP_ROOT_DIR = ($_SERVER['HTTP_HOST'] == 'localhost') ?
     __DIR__.'/..' :
     __DIR__.'/../../../../mimic_core';
 
@@ -25,7 +25,7 @@ const APP_ROOT_DIR = ($_SERVER['HTTP_HOST'] == 'localhost') ?
 |
 */
 
-if (file_exists($maintenance = APP_ROOT_DIR.'/storage/framework/maintenance.php')) {
+if (file_exists($maintenance = $APP_ROOT_DIR.'/storage/framework/maintenance.php')) {
     require $maintenance;
 }
 
@@ -40,7 +40,7 @@ if (file_exists($maintenance = APP_ROOT_DIR.'/storage/framework/maintenance.php'
 |
 */
 
-require APP_ROOT_DIR.'/vendor/autoload.php';
+require $APP_ROOT_DIR.'/vendor/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -53,7 +53,7 @@ require APP_ROOT_DIR.'/vendor/autoload.php';
 |
 */
 
-$app = require_once APP_ROOT_DIR.'/bootstrap/app.php';
+$app = require_once $APP_ROOT_DIR.'/bootstrap/app.php';
 
 $kernel = $app->make(Kernel::class);
 
