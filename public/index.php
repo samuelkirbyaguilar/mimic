@@ -1,5 +1,8 @@
 <?php
 
+# determines app root dir
+include 'env.php';
+
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
@@ -10,7 +13,7 @@ define('LARAVEL_START', microtime(true));
  * Path from public to app root is different
  * between development and production
  */
-$APP_ROOT_DIR = ($_SERVER['HTTP_HOST'] == 'localhost') ?
+$APP_ROOT_DIR = (ENVIRONMENT == 'development') ?
     __DIR__.'/..' :
     __DIR__.'/../../../../mimic_core';
 
