@@ -1,9 +1,21 @@
 <?php
 
+# determines app root dir
+include 'env.php';
+
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
+
+/**
+ * Initialize app root directory based on host.
+ * Path from public to app root is different
+ * between development and production
+ */
+$APP_ROOT_DIR = (ENVIRONMENT == 'development') ?
+    __DIR__.'/..' :
+    __DIR__.'/../../../../mimic_core';
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +28,7 @@ define('LARAVEL_START', microtime(true));
 |
 */
 
-if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
+if (file_exists($maintenance = $APP_ROOT_DIR.'/storage/framework/maintenance.php')) {
     require $maintenance;
 }
 
@@ -31,7 +43,7 @@ if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php'))
 |
 */
 
-require __DIR__.'/../vendor/autoload.php';
+require $APP_ROOT_DIR.'/vendor/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +56,7 @@ require __DIR__.'/../vendor/autoload.php';
 |
 */
 
-$app = require_once __DIR__.'/../bootstrap/app.php';
+$app = require_once $APP_ROOT_DIR.'/bootstrap/app.php';
 
 $kernel = $app->make(Kernel::class);
 
